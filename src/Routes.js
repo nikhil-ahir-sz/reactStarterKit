@@ -6,17 +6,20 @@ let {
     Router,
     Route,
     DefaultRoute,
-    NotFoundRoute,
-    Redirect
+    NotFoundRoute
     } = require('react-router');
 
-let Main = require('./js/container/Main');
-let SomePage = require('./js/container/SomePage');
+//let Main = require('./js/container/Main');
+import Main from './js/container/Main';
+import About from './js/container/About';
+//let SomePage = require('./js/container/SomePage');
+import SomePage from './js/container/SomePage';
 
 var Routes = (
     <Router>
-        <Route path='/' component={Main}>
-            <Route path='/some' component={SomePage} />
+        <Route path='/' component={App}>
+            <Route path='/about/:id' component={About} />
+            <Route path='/abc' component={Abc} />
         </Route>
     </Router>
 );

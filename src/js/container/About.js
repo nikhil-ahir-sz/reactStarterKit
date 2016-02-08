@@ -3,14 +3,16 @@
  */
 
 var React = require('react');
+let {
+    Link
+    } = require('react-router');
 
-export default class SomePage extends React.Component {
+
+export default class About extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            data: props.data
-        };
+
     }
     componentWillMount() {
         console.log('componentWillMount::');
@@ -20,21 +22,19 @@ export default class SomePage extends React.Component {
     }
     componentWillReceiveProps(nextProps) {
         console.log('componentWillReceiveProps::', nextProps);
-        if(this.state.data != nextProps.data) {
-            this.setState({
-                data: nextProps.data
-            });
-        }
+
     }
     componentDidUpdate() {
         console.log("componentDidUpdate");
     }
     render() {
         console.log('render');
+        const id = this.props.params.id;
+
         return (
             <div>
-                <span>{this.state.data}</span>
-                Hello from SomePage...
+                About...{id}
+                <Link to={"/abc"}>abc</Link>
             </div>
         );
     }
@@ -43,6 +43,6 @@ export default class SomePage extends React.Component {
     }
 }
 
-SomePage.propTypes = {
-    data: React.PropTypes.number.isRequired
+About.propTypes = {
+
 };
